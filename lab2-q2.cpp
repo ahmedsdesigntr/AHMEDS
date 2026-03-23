@@ -31,7 +31,8 @@ public:
 };
 
 int main() {
-    Student stu;
+    Student ahmed;
+    Student ahmet;
     string name;
     float mark;
 
@@ -41,13 +42,13 @@ int main() {
     cout << "Mark: ";
     cin >> mark;
 
-    stu.setName(name);
-    stu.setMark(mark);
+    ahmed.setName(name);
+    ahmed.setMark(mark);
 
-    cout << "Name: " << stu.getName() << endl;
-    cout << "Mark: " << stu.getMark() << endl;
+    cout << "Name: " << ahmed.getName() << endl;
+    cout << "Mark: " << ahmed.getMark() << endl;
 
-    if (stu.isPassed())
+    if (ahmed.isPassed())
         cout << "Passed" << endl;
     else
         cout << "Failed" << endl;

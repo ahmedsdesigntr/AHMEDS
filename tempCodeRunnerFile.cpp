@@ -1,56 +1,86 @@
-#include <iostream>
-#include <string>
+#include<iostream>
+#include<string>
 using namespace std;
 
-class Student {
+class BankAccount {
 private:
-    string name;
-    float mark;
+    int accountNumber;
+    string accountHolderName;
+    double balance;
 
 public:
-    void setName(string n) {
-        name = n;
+
+    
+    BankAccount() {
+        accountNumber = 0;
+        accountHolderName = "Unknown";
+        balance = 0.0;
     }
 
-    void setMark(float m) {
-        if (m >= 0 && m <= 100)
-            mark = m;
+    
+    BankAccount(int accNum, string accHolder, double initialBalance) {
+        accountNumber = accNum;
+        accountHolderName = accHolder;
+        balance = initialBalance;
+        if (balance < 0) {
+            balance = 0.0;
+
+        }
+    if (accountNumber < 1000) {
+            accountNumber = 1000;
+        }
+    }
     }
 
-    string getName() {
-        return name;
+    void deposit(double amount) {
+        balance += amount;
     }
 
-    float getMark() {
-        return mark;
+    void withdraw(double amount) {
+        if(amount <= balance)
+            balance -= amount;
+        else
+            cout << "Insufficient funds!" << endl;
     }
 
-    bool isPassed() {
-        return mark >= 50;
+    void displayAccountInfo() {
+        cout << "Account Number: " << accountNumber << endl;
+        cout << "Account Holder: " << accountHolderName << endl;
+        cout << "Balance: " << balance << endl;
     }
 };
 
 int main() {
-    Student s;
-    string name;
-    float mark;
 
-    cout << "Name: ";
+    BankAccount account1;
+
+    BankAccount account2(1907, "AHMED", 1000);
+
+    
+    int acNum;
+    string name;
+    double balance;
+
+    cout << "Enter Account Number: ";
+    cin >> acNum;
+
+    cout << "Enter Account Holder Name: ";
     cin >> name;
 
-    cout << "Mark: ";
-    cin >> mark;
+    cout << "Enter Initial Balance: ";
+    cin >> balance;
 
-    s.setName(name);
-    s.setMark(mark);
+    BankAccount account3(acNum, name, balance);
 
-    cout << "Name: " << s.getName() << endl;
-    cout << "Mark: " << s.getMark() << endl;
+    
+    cout << " Account 1";
+    account1.displayAccountInfo();
 
-    if (s.isPassed())
-        cout << "Passed" << endl;
-    else
-        cout << "Failed" << endl;
+    cout << " Account 2";
+    account2.displayAccountInfo();
+
+    cout << " Account 3";
+    account3.displayAccountInfo();
 
     return 0;
 }
