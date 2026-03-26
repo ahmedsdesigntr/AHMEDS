@@ -1,86 +1,51 @@
-#include<iostream>
-#include<string>
+include<iostream>
 using namespace std;
-
-class BankAccount {
-private:
-    int accountNumber;
-    string accountHolderName;
-    double balance;
-
-public:
-
-    
-    BankAccount() {
-        accountNumber = 0;
-        accountHolderName = "Unknown";
-        balance = 0.0;
-    }
-
-    
-    BankAccount(int accNum, string accHolder, double initialBalance) {
-        accountNumber = accNum;
-        accountHolderName = accHolder;
-        balance = initialBalance;
-        if (balance < 0) {
-            balance = 0.0;
-
-        }
-    if (accountNumber < 1000) {
-            accountNumber = 1000;
-        }
-    }
-    }
-
-    void deposit(double amount) {
-        balance += amount;
-    }
-
-    void withdraw(double amount) {
-        if(amount <= balance)
-            balance -= amount;
-        else
-            cout << "Insufficient funds!" << endl;
-    }
-
-    void displayAccountInfo() {
-        cout << "Account Number: " << accountNumber << endl;
-        cout << "Account Holder: " << accountHolderName << endl;
-        cout << "Balance: " << balance << endl;
-    }
-};
-
-int main() {
-
-    BankAccount account1;
-
-    BankAccount account2(1907, "AHMED", 1000);
-
-    
-    int acNum;
+include<string>;
+class ogrenci{
+    private:
+    int grade ;
     string name;
-    double balance;
+    public:
+    ogrenci(string n, int g){
+        name = n;
+        grade = g;
+    }
+    ogrenci(){
+        name = "Unknown";
+        grade = 0;
+    }
+    ogrenci(){
+        name = "ahmed";
+        grade = 100;
+    }
 
-    cout << "Enter Account Number: ";
-    cin >> acNum;
+    void showInfo(){
+        cout << "Name: " << name << endl;
+        cout << "Grade: " << grade << endl;
+    }
+friend class teacher;
+    private:
+    int grade ;
+    string name;
+public:
+    increaseGrade(ogrenci& student, int g){
+        student.grade += g;
+    }
 
-    cout << "Enter Account Holder Name: ";
-    cin >> name;
+};
+int main(){
+    ogrenci student1("Ali", 85);
+    ogrenci student2;
+    ogrenci student3;
 
-    cout << "Enter Initial Balance: ";
-    cin >> balance;
+    student1.showInfo();
+    student2.showInfo();
+    student3.showInfo();
 
-    BankAccount account3(acNum, name, balance);
-
-    
-    cout << " Account 1";
-    account1.displayAccountInfo();
-
-    cout << " Account 2";
-    account2.displayAccountInfo();
-
-    cout << " Account 3";
-    account3.displayAccountInfo();
+    teacher t;
+    t.increaseGrade(student1, 5);
+    cout << "After increasing grade:" << endl;
+    student1.showInfo();
 
     return 0;
 }
