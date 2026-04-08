@@ -32,7 +32,7 @@ public:
 // Teacher class
 class teacher {
 public:
-    void increaseGrade(ogrenci& student, int g) {
+    void increaseGrade(ogrenci &student, int g) {
         student.grade += g;
     }
 };
@@ -45,7 +45,7 @@ int main() {
     student2.showInfo();
 
     teacher t;
-    t.increaseGrade(student1, 10);
+    t.increaseGrade(student1, 15);
 
     cout << "After increasing grade:" << endl;
     student1.showInfo();
