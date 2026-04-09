@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
 using namespace std;
-
 class person 
 {
     private:
@@ -37,26 +36,29 @@ class student:public person
 };
 class gradutestudent:public student
 {
-    string thesis;
+    string bolum;
     public:
     gradutestudent(string n,int a,int i,int g,string t):student(n,a,i,g)
     {
-        thesis=t;
+        bolum=t;
     }
     void displaygradutestudentthathegraduated()
     {
-        cout<<"Thesis: "<<thesis<<endl;
+        cout<<"Bolum: "<<bolum<<endl;
     }
 };
 int main()
 {
+//kendim eklemek istedim asli hocam 
     person p("ahmed",19);
     p.displayperson();
     cout<<endl;
-    student s("watfe",20,12345,90);
+//burayida kendim eklemek istedim asli hocam 
+    student s("watfe",20,123,90);
     s.displayperson();
     s.displaystudent();
     cout<<endl;
+//burasi istenen kisimlar heralde 
     gradutestudent g("asli",23,101,90,"yazilim muhendisligi");
     g.displayperson();
     g.displaystudent();
