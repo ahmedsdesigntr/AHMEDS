@@ -29,5 +29,8 @@ int main() {
     cout << "Product: " << product.value << endl;
     cout << "Quotient: " << quotient.value << endl;
 
+    catch (const runtime_error& e) {
+        cerr << "Error: " << e.what() << endl;
+    }
     return 0;
 }
